@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="col-md-4">
+    <form [formGroup]="UFOform" (ngSubmit)="onSubmit()">
+      <input class="form-control" formControlName="id" type="hidden" />
+      <div class="form-group">
+        <label>City</label>
+        <input class="form-control" formControlName="city" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.city.valid || (UFOform.controls.city.pristine && !submitted)">
+          City name is compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <input class="form-control" formControlName="country" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.country.valid || (UFOform.controls.country.pristine && !submitted)">
+          Country name is compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Duration</label>
+        <input class="form-control" formControlName="duration" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.duration.valid || UFOform.controls.duration.pristine && !submitted)">
+          Duration interval is compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Date Time</label>
+        <input class="form-control" formControlName="datetime" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.datetime.valid || (UFOform.controls.datetime.pristine && !submitted)">
+          Date Time is compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Date Posted</label>
+        <input class="form-control" formControlName="dateposted" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.dateposted.valid || (UFOform.controls.dateposted.pristine && !submitted)">
+          Date Posted is compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <label>Comments</label>
+        <input class="form-control" formControlName="comments" />
+        <p class="alert alert-warning" [hidden]="UFOform.controls.comments.valid || (UFOform.controls.comments.pristine && !submitted)">
+          Comments are compulsory.
+        </p>
+      </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="!UFOform.valid" class="btn btn-primary">Register</button>
+        <button class="btn btn-default" routerLink="/read">Back</button>
+      </div>
+    </form>
+  </div>
+</div>
+

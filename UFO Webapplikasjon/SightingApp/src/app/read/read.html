@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>   Sighting: Single Page Application (SPA) </h2>
+    <div>
+        <div class="col-md-12">
+            <div *ngIf="loading">Loading sightings.....</div>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Duration</th>
+                    <th>Date Time</th>
+                    <th>Date Posted</th>
+                    <th>Comments</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let sighting of allSightings">
+                  <tr>
+                    <td>{{sighting.city}}</td>
+                    <td>{{sighting.country}}</td>
+                    <td>{{sighting.duration}}</td>
+                    <td>{{sighting.datetime}}</td>
+                    <td>{{sighting.dateposted}}</td>
+                    <td>{{sighting.comments}}</td>
+                    <td><button class="btn btn-danger" (click)="deleteSighting(sighting.id)">Delete</button></td>
+                    <td><button class="btn btn-success" [routerLink]="['/update',sighting.id]">Update</button></td>
+                  </tr>
+                </tbody>
+            </table>
+            <button class='btn btn-primary' routerLink="/create">Create Sighting</button>
+        </div>
+    </div>
+</div>

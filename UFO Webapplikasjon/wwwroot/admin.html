@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="js/admin.js"></script>
+</head>
+<body>
+    <!--MENU-->
+    <div class="header">
+        <a href="#default" class="logo">UFO OBSERVATIONS</a>
+        <div class="header-right">
+            <a href="./index.html">Home</a>
+            <a href="./article.html">Feed</a>
+            <a href="./create.html">Submit a report</a>
+            <a href="./aboutus.html">About us</a>
+            <a class="active" href="./admin.html">Admin</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <br /><br /><br /><br /><br /><br />
+        <h1>Her er innleggene:</h1>
+        <div id="reports"></div>
+        <a href="create.html" class="btn btn-primary">Lagre ny rapport</a>
+    </div>
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("reports");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="background-color: #182747; ">
+        <div class="container">
+            <div class="row gy-4 gx-9">
+                <div class="col-lg-4 col-md-6 left">
+                    <h3 class="footerTitle">UFO Observations</h3>
+                    <p>
+                        UFO Observations is a sighting website for any unexplained moving object observed in the sky, especially one assumed by some observers to be of extraterrestrial origin.
+                        Here you can sight or report What happened and what was seen etc.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mid">
+                    <h3 class="footerTitle">Contact Information</h3>
+                    <span>UFO Observations AS</span>
+                    <br />
+                    <span>Org.Nr 666 356 106</span>
+                    <br />
+                    <span>E-mail: <a href="mailto:support@reset.com">support@reset.com</a></span>
+                    <br />
+                    <span>Telephone: <a href="tel:+47 123 45 678">+47 123 45 678</a></span>
+                </div>
+                <div class="col-lg-4 col-md-6  right">
+                    <h3 class="footerTitle">Submit a Report</h3>
+                    If you have seen any UFOs,
+                    please report to us!
+                    <br />
+                    <br />
+                    <a href='/create.html' class="filebutton">Submit a Report</a>
+                </div>
+            </div>
+        </div>
+        <div class="row copyright">
+            <h5>2022 &copy; <b>UFO OBSERVATIONS</b></h5>
+        </div>
+    </footer>
+</body>
+</html>

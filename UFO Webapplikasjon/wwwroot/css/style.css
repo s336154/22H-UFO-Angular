@@ -1,0 +1,543 @@
+html, body {
+    overflow-x: hidden; /* fjerne horisontal scrolling */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #c8d1ea;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+    a:hover, a:active {
+        /*color: #eaba62;*/
+        text-decoration: none;
+    }
+
+.container-fluid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*--------------------------------------------MENU------------------------------------------------*/
+.header {
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #141f38;
+    padding: 20px 15px;
+    z-index: 2;
+}
+
+.header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 11px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 22px;
+    border-radius: 5px;
+}
+    .header a.logo {
+        font-size: 33px;
+        font-weight: bold;
+    }
+    .header a:hover {
+        color: wheat;
+    }
+    .header a.active {
+        color: wheat;
+        text-decoration: underline;
+    }
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 810px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+/*-------------------------------------------IMAGES-----------------------------------------------*/
+.mainbackground {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.maintitle {
+    position: relative;
+    top: -50%;
+    padding: 15px 0;
+    font-size: 50px;
+    background-color: #293e70;
+    background: linear-gradient(to top, #1b294b 0%, #293e70 100%);
+    opacity: 0.8;
+    text-align: center;
+    margin: 0 20%;
+    z-index: 1;
+    border-radius: 20px;
+    border: 1px solid #c8d1ea;
+}
+
+/*------------------------------------------ABOUT-----------------------------------------------*/
+.sectionAbout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #293e70;
+    background: linear-gradient(to top, #1b294b 0%, #293e70 100%);
+    text-align: center;
+    margin: -65px 0 40px 0;
+    padding: 70px 24vw;
+}
+.titleA {
+    font-weight: 600;
+}
+.lineA {
+    border-top: 1px solid white;
+    padding-bottom: 10px;
+}
+.textA {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.buttonA {
+    text-decoration: none; 
+    font-size: 16px;
+    padding-top: 15px;
+}
+.buttonA a {color: wheat;text-decoration: none;}
+    .buttonA a:hover, .buttonA a:active {color: #eaba62;text-decoration: none;}
+
+/*------------------------------------------ARTICLE PREVIEW-----------------------------------------------*/
+.previewMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+/*------------------------------------------COUNTER-----------------------------------------------*/
+.counter {
+    background-color: #1b294b;
+    padding: 90px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-right: 15px solid #c8d1ea;
+}
+.titleC {
+    text-align: center;
+    font-size: 50px;
+    color: wheat;
+}
+.textC {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+/*------------------------------------------PREVIEW-----------------------------------------------*/
+.article {
+    border-bottom: 10px solid #c8d1ea;
+}
+/*.preview {border-right: 25px solid #c8d1ea;}*/
+.date {
+    border-right: 2px solid wheat;
+    padding: 15px 25px;
+    line-height: 2.8;
+    background-color: #1b294b;
+}
+.fl {display: inline-block;}
+    .fl:first-letter {text-transform: uppercase;}
+
+.comment {
+    padding: 20px 60px 20px 35px;
+    background-color: #1b294b;
+}
+.titleP {
+    color: antiquewhite;}
+.textP {
+    line-height: 1.7;
+}
+.btnCrud {
+    background-color: #293e70;
+    border: 1px solid wheat;
+    color: wheat;
+    margin: 1px 0px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    padding: 2px 0;
+}
+    .btnCrud:hover, .btnCrud:after {
+        background-color: #304982;
+        color: wheat;
+    }
+
+.seemore a {
+    background-color: #1b294b;
+    border: none;
+    color: wheat;
+    padding: 14px 0px;
+    font-size: 16px;
+    text-align: center;
+}
+    .seemore a:hover, .seemore a:active {
+        color: #eaba62;
+        text-decoration: none;
+    }
+
+.latest {
+    background-color: #1b294b;
+    border: none;
+    margin: 0 0 10px 0;
+    color: wheat;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/*------------------------------------------FOOTER-----------------------------------------------*/
+footer {
+    background-color: #293e70;
+    background: linear-gradient(to bottom, #1b294b 0%, #293e70 100%);
+    width: 100%;
+    line-height: 2.3;
+    margin-top: 20px;
+}
+
+.footerTitle {
+    text-align: center;
+}
+
+.left, .right, .mid {
+    padding: 30px 30px;
+}
+
+.mid {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    text-align: center;
+}
+.mid span a {
+    color: wheat;
+}
+.footer div div div {margin:0;}
+.copyright {
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: #141f38;
+    border-top: 2px solid white;
+    padding: 20px 0px 10px 0px;
+    color: wheat
+}
+
+.filebutton {
+    width: 300px;
+    color: black;
+    background-color: wheat;
+    color: black;
+    padding: 15px 15px;
+    font-size: 15px;
+    text-align: center;
+}
+
+    .filebutton:hover {
+        background: wheat;
+        color: #182744;
+    }
+
+@media only screen and (max-width: 1000px) {
+    .mid {
+        border: none;
+    }
+    .footer {text-align:center;}
+}
+
+/*------------------------------------------FEED (article.js)-----------------------------------------------*/
+.feed {
+    margin-top: 50px;
+    padding: 20px 0;
+}
+.description {
+    text-align: center;
+    justify-content: center;
+}
+    .description h1 {color: black; font-weight:700;}
+
+.sort {
+    margin-top: 20px;
+    width: 75%;
+    padding: 32px 100px 25px 100px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+.btnAC {
+    margin: -5px 0;
+    width: 120px;
+    height: 50px;
+    background-color: wheat;
+    color: black;
+    font-size: 20px;
+}
+    .btnAC:hover, .btnAC:after {
+        background-color: #293e70;
+        border: 2px solid black;
+        color: wheat;
+    }
+
+.subright {
+    text-align: right;
+}
+.btnCA {
+    margin: -5px 0;
+    width: 200px;
+    height: 50px;
+    background-color: wheat;
+    color: black;
+    font-size: 20px;
+}
+    .btnCA a {
+        color: black;
+    }
+
+    .btnCA:hover, .btnCA:after, .btnCA a:hover, .btnCA a:after {
+        background-color: #293e70;
+        color: white;
+    }
+
+.observation {
+    margin: 10px 5vw;
+}
+.dateF {
+    border-right: 2px solid wheat;
+    padding: 20px 2.5vw;
+    line-height: 3.2;
+    background-color: #1b294b;
+    font-size: 14px;
+    display: block;
+}
+.commentF {
+    padding: 22px 60px 22px 35px;
+    background-color: #1b294b;
+}
+.titleF {
+    color: antiquewhite;
+}
+.textF {
+    line-height: 1.6;
+    font-size: 14px;
+}
+.notVisible {display: none;}
+.visible {display: block;}
+
+@media only screen and (max-width: 1400px) {
+    /* Index */
+    .counter {
+        border: none;
+        padding: 50px 0;
+        margin-bottom: 40px;
+    }
+    .titleC {font-size: 35px; margin:0;}
+    .textC {font-size: 35px;}
+
+    .previewMain {
+        justify-content: center;
+    }
+
+    .latest {
+        text-align: center;
+        padding: 30px 30px;
+        margin: 0 0 15px 0;
+    }
+    .wideC {
+        width: 100%;
+    }
+
+    /* Feed */
+    .observation {
+        display: block;
+        margin-bottom: 30px;
+    }
+    .dateF {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid wheat;
+        line-height: 2.5;
+        padding: 20px 2.5vw 0 2.5vw;
+    }
+    .commentF {
+        width: 100%;
+        padding: 32px 60px 32px 41px;
+    }
+    .notVisible {display: block;}
+    .visible {display: none;}
+
+    .btngroup {
+        text-align: right;
+        line-height: normal;
+        margin: 17px 0 0 0;
+        padding: 0;
+    }
+    .btnCrud {
+        margin: 25px 20px;
+        padding: 10px 26.5px;
+        height: 38px;
+    }
+}
+
+
+
+/*------------------------------------------CREATE / UPDATE-----------------------------------------------*/
+.register {
+    margin: 1.1rem 0 2.7rem 0;
+    padding: 0px 25%;
+    justify-content: center;
+}
+.register h1 {
+    font-weight: 700;
+}
+
+.titleR {
+    text-align: center;
+}
+.form-group {
+    padding: 15px 0;
+}
+.form-control {
+    width: 80%;
+}
+.form-control:focus, .form-control:after {
+    background-color: white;
+    color: black;
+}
+¨.formT {
+    justify-content: right;
+}
+.form {
+    background-color: #1b294b;
+    justify-content: center;
+}
+h4 {visibility: hidden;}
+.submit {
+    text-align: center;
+    padding: 7px 0 20px 0;
+}
+.feil {
+    padding: 10px;
+    background: red;
+}
+.subButton {
+    width: 200px;
+    color: black;
+    background-color: wheat;
+    border: none;
+    padding: 10px 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.textarea {
+    height: 125px;
+}
+label {
+    padding-top: 5px;
+}
+
+/* Cancel & Delete buttons */
+.cancelbtn, .deletebtn {
+    float: inherit;
+    width: 40%;
+    align-items: center;
+}
+
+.cancelbtn {
+    background-color: #c8d1ea;
+    color: black;
+    padding:10px;
+}
+
+.deletebtn {
+    background-color: #1b294b;
+    color: white;
+    padding: 10px;
+}
+
+.deletebox {
+    padding: 16px;
+    text-align: center;
+}
+.deletebox h1 {
+    color: black;
+}
+
+
+.modal {
+    text-align: center;
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+/* The Modal Close Button (x) */
+.close {
+position: initial;
+top: 0px;
+font-size: 40px;
+font-weight: bold;
+color: red;
+}
+
+.close:hover,
+.close:focus {
+    cursor: pointer;
+}
+
+
+.clearfix::after {
+content: "";
+clear: both;
+display: table;
+}
+
+@media screen and (max-width: 300px) {
+.cancelbtn, .deletebtn {
+    width: 100%;
+}
+}
