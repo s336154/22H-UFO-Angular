@@ -22,7 +22,7 @@ namespace UFO_Webapplikasjon.Model
                 // lag en påoggingsbruker
                 var user = new Users();
                 user.Username = "Admin";
-                var password = "Test11";
+                string password = "Test11";
                 byte[] salt = UserRepository.doSalt();
                 byte[] hash = UserRepository.doHash(password, salt);
                 user.Password = hash;

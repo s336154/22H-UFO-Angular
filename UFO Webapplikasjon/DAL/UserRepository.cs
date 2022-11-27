@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using UFO_Webapplikasjon.Controllers;
 using UFO_Webapplikasjon.Model;
 
+
 namespace UFO_Webapplikasjon.DAL
 {
     public class UserRepository : InUserRepository
@@ -150,7 +151,7 @@ namespace UFO_Webapplikasjon.DAL
             return salt;
         }
 
-        public async Task<bool> LoggInn(User user)
+        public async Task<bool> LogIn(User user)
         {
             try
             {

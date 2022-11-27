@@ -19,6 +19,8 @@ namespace UFO_Webapplikasjon.Controllers
 
         private ILogger<UserController> _log;
 
+        private const string _logedIn = "logedIn";
+
         public UserController(InUserRepository db, ILogger<UserController> log)
         {
             _db = db;
@@ -28,6 +30,11 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpGet]
         public async Task<ActionResult> ReadAllUsers()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
+
             List<User> everyUsers = await _db.ReadAllUsers();
             return Ok(everyUsers);
         }
@@ -35,6 +42,10 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateUser(User innUser)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.CreateUser(innUser);
 
             if (!returOK)
@@ -48,6 +59,11 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
+
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.DeleteUser(id);
 
             if (!returOK)
@@ -61,6 +77,10 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpGet]
         public async Task<ActionResult> ReadLatestUser()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
             User singleUser = await _db.ReadLatestUser();
 
             if (singleUser == null)
@@ -74,6 +94,10 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> ReadOneUser(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
             User singleUser = await _db.ReadOneUser(id);
 
             if (singleUser == null)
@@ -87,6 +111,10 @@ namespace UFO_Webapplikasjon.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUser(User updateUser)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_logedIn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.UpdateUser(updateUser);
 
             if (!returOK)
@@ -98,20 +126,27 @@ namespace UFO_Webapplikasjon.Controllers
         }
 
 
-        public async Task<ActionResult> LoggInn(User user)
+        public async Task<ActionResult> LogIn(User user)
         {
            
             
-                bool returnOK = await _db.LoggInn(user);
+                bool returnOK = await _db.LogIn(user);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" + user.Username);
-                    return Ok(false);
-                }
-                return Ok(true);
+                    _log.LogInformation("loging in feiled for the user" + user.Username);
+                HttpContext.Session.SetString(_logedIn, "");
+                return Ok(false);
             }
-  
-        
+            HttpContext.Session.SetString(_logedIn, "LogedIn");
+            return Ok(true);
+        }
+
+        public void LogOut()
+        {
+            HttpContext.Session.SetString(_logedIn, "");
+        }
+
+
 
 
     }
