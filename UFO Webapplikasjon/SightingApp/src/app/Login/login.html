@@ -1,0 +1,27 @@
+<div>
+  <h2>User Login </h2>
+  <div class="container">
+    <div class="col-md-4">
+      <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Username</label>
+          <input class="form-control" formControlName="username" />
+          <p class="alert alert-warning" [hidden]="LoginForm.controls.username.valid || (LoginForm.controls.username.pristine && !submitted)">
+            Username is compulsory.
+          </p>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" formControlName="password" />
+          <p class="alert alert-warning" [hidden]="LoginForm.controls.password.valid || (LoginForm.controls.password.pristine && !submitted)">
+            Password must at least be 6 charaters long.
+          </p>
+        </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="!LoginForm.valid" class="btn btn-primary">Login</button>
+      <button class="btn btn-default" routerLink="/read">Back</button>
+    </div>
+    </form>
+  </div>
+</div>

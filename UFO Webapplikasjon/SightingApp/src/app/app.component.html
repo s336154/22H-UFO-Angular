@@ -2,42 +2,6 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<div>
 
-  <h2>User Login </h2>
 
-  <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-    <table>
-      <tr>
-        <td>
-          <label>Username:</label>
-        </td>
-        <td>
-          <input type="text" formControlName="brukernavn">
-        </td>
-        <td *ngIf="this.Skjema.controls.brukernavn.status=='INVALID'">
-          Obligatorisk
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>Password:</label>
-        </td>
-        <td>
-          <input type="password" formControlName="password">
-        </td>
-        <td *ngIf="this.Skjema.controls.password.status=='INVALID'">
-          Mellom 6 og 15 siffer
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="submit" [disabled]="!Skjema.valid">Register</button>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </table>
-  </form>
-</div>
 
