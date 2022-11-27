@@ -1,11 +1,12 @@
-﻿namespace UFO_Webapplikasjon.Model
+﻿using UFO_Webapplikasjon.DAL;
+
+namespace UFO_Webapplikasjon.Model
 {
     public static class DBInit
     {
         public static void Initialize(IApplicationBuilder app)
         {
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
+                var serviceScope = app.ApplicationServices.CreateScope();
                 var context = serviceScope.ServiceProvider.GetService<Context>();
 
                 // må slette og opprette databasen hver gang når den skal initieres (seed`es)
@@ -18,8 +19,18 @@
                 context.Sightings.Add(kunde1);
                 context.Sightings.Add(kunde2);
 
+                // lag en påoggingsbruker
+                var user = new Users();
+                user.Username = "Admin";
+                var password = "Test11";
+                byte[] salt = UserRepository.doSalt();
+                byte[] hash = UserRepository.doHash(password, salt);
+                user.Password = hash;
+                user.Salt = salt;
+                context.Users.Add(user);
+
                 context.SaveChanges();
-            }
+            
         }
     }
 }

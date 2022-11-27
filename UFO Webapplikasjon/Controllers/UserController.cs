@@ -100,8 +100,8 @@ namespace UFO_Webapplikasjon.Controllers
 
         public async Task<ActionResult> LoggInn(User user)
         {
-            if (ModelState.IsValid)
-            {
+           
+            
                 bool returnOK = await _db.LoggInn(user);
                 if (!returnOK)
                 {
@@ -110,9 +110,8 @@ namespace UFO_Webapplikasjon.Controllers
                 }
                 return Ok(true);
             }
-            _log.LogInformation("Feil i inputvalidering");
-            return BadRequest("Feil i inputvalidering på server");
-        }
+  
+        
 
 
     }

@@ -21,6 +21,13 @@ namespace UFO_Webapplikasjon
             services.AddDbContext<Context>(options =>
                             options.UseSqlite("Data Source=Sighting.db"));
             services.AddScoped<InSightingRepository, SightingRepository>();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800); // 30 minutter
+                options.Cookie.IsEssential = true;
+            });
         }
     
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +39,8 @@ namespace UFO_Webapplikasjon
                 loggerFactory.AddFile("Logs/SightingLog.txt");
                 //DBInit.Initialize(app);   
             }
+
+            app.UseSession();
 
             app.UseRouting();
 

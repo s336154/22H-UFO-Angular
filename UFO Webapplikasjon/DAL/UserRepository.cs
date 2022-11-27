@@ -12,7 +12,7 @@ namespace UFO_Webapplikasjon.DAL
         private readonly Context _db;
         private ILogger<UserController> _log;
 
-        public UserController(InUserRepository db, ILogger<UserController> log)
+        public UserRepository(Context db, ILogger<UserController> log)
         {
             _db = db;
             _log = log;
@@ -25,7 +25,7 @@ namespace UFO_Webapplikasjon.DAL
                 var newUserRow = new Users();
 
                 newUserRow.Username = innUser.Username;
-                newUserRow.Password = innUser.Password;
+        //        newUserRow.Password = innUser.Password;
                 newUserRow.Firstname = innUser.Firstname;
                 newUserRow.Lastname = innUser.Lastname;
 
@@ -48,7 +48,7 @@ namespace UFO_Webapplikasjon.DAL
                 {
                     Id = k.Id,
                     Username = k.Username,
-                    Password = k.Password,
+          //          Password = k.Password,
                     Firstname = k.Firstname,
                     Lastname = k.Lastname,
                 }).ToListAsync();
@@ -70,7 +70,7 @@ namespace UFO_Webapplikasjon.DAL
                 {
                     Id = k.Id,
                     Username = k.Username,
-                    Password = k.Password,
+           //         Password = k.Password,
                     Firstname = k.Firstname,
                     Lastname = k.Lastname,
                 }).OrderByDescending(x => x.Id).ToListAsync();
@@ -92,7 +92,7 @@ namespace UFO_Webapplikasjon.DAL
             {
                 Id = singleUser.Id,
                 Username = singleUser.Username,
-                Password = singleUser.Password,
+       //         Password = singleUser.Password,
                 Firstname = singleUser.Firstname,
                 Lastname = singleUser.Lastname,
             };
@@ -120,7 +120,7 @@ namespace UFO_Webapplikasjon.DAL
             {
                 var updateObjekt = await _db.Users.FindAsync(updateUser.Id);
                 updateObjekt.Username = updateUser.Username;
-                updateObjekt.Password = updateUser.Password;
+       //         updateObjekt.Password = updateUser.Password;
                 updateObjekt.Firstname = updateUser.Firstname;
                 updateObjekt.Lastname = updateUser.Lastname;
                 await _db.SaveChangesAsync();
@@ -132,10 +132,10 @@ namespace UFO_Webapplikasjon.DAL
             return true;
         }
 
-        public static byte[] doHash(string passord, byte[] salt)
+        public static byte[] doHash(string password, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
-                                password: passord,
+                                password: password,
                                 salt: salt,
                                 prf: KeyDerivationPrf.HMACSHA512,
                                 iterationCount: 1000,

@@ -11,6 +11,6 @@ namespace UFO_Webapplikasjon.DAL
         Task<bool> DeleteUser(int id);
         Task<User> ReadOneUser(int id);
         Task<bool> UpdateUser(User updateUser);
-        Task<bool> LoggInn(User user);
+        Task<bool> LogIn(User user);
     }
 }

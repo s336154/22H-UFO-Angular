@@ -50,8 +50,8 @@ export class Create {
     createdSighting.dateposted = this.UFOform.value.dateposted;
     createdSighting.comments = this.UFOform.value.comments;
 
-    this.http.post("api/kunde", createdSighting)
-      .subscribe(retur => {
+    this.http.post("api/sighting", createdSighting)
+      .subscribe(returned => {
         this.router.navigate(['/read']);
       },
        error => console.log(error)
