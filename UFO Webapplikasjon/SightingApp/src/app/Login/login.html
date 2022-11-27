@@ -1,5 +1,5 @@
 <div>
-  <h2>User Login </h2>
+  <h2> Login </h2>
   <div class="container">
     <div class="col-md-4">
       <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
       <button type="submit" [disabled]="!LoginForm.valid" class="btn btn-primary">Login</button>
-      <button class="btn btn-default" routerLink="/read">Back</button>
+      <button class="btn btn-success" routerLink="/signup">Sign up</button>
     </div>
     </form>
   </div>

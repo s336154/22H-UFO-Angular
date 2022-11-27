@@ -1,6 +1,27 @@
-﻿namespace UFO_Webapplikasjon.SightingApp.src.app.Login
-{
-    public class signup
-    {
-    }
-}
+<div>
+  <h2>Sign up </h2>
+  <div class="container">
+    <div class="col-md-4">
+      <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Username</label>
+          <input class="form-control" formControlName="username" />
+          <p class="alert alert-warning" [hidden]="SignupForm.controls.username.valid || (SignupForm.controls.username.pristine && !submitted)">
+            Username is compulsory.
+          </p>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input class="form-control" formControlName="password" />
+          <p class="alert alert-warning" [hidden]="SignupForm.controls.password.valid || (SignupForm.controls.password.pristine && !submitted)">
+            Password must at least be 6 charaters long.
+          </p>
+        </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="!SignupForm.valid" class="btn btn-primary">Sign up</button>
+      <button class="btn btn-success" routerLink="/login">Login</button>
+    </div>
+    </form>
+  </div>
+</div>
