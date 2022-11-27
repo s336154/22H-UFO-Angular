@@ -18,7 +18,7 @@ namespace UFO_Webapplikasjon
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<SightingContext>(options =>
+            services.AddDbContext<Context>(options =>
                             options.UseSqlite("Data Source=Sighting.db"));
             services.AddScoped<InSightingRepository, SightingRepository>();
         }

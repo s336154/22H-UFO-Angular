@@ -1,10 +1,17 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+
+
 using UFO_Webapplikasjon.Model;
 
 namespace UFO_Webapplikasjon.DAL
 {
     public interface InSightingRepository
     {
+        // Sightings
         Task<bool> Create(Sighting innSighting);
         Task<List<Sighting>> ReadAll();
         Task<List<Sighting>> ReadIdDesc();

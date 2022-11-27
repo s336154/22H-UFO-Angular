@@ -11,63 +11,122 @@ namespace UFO_Webapplikasjon.Controllers
     {
         private readonly InSightingRepository _db;
 
+        private ILogger<SightingController> _log;
 
-
-        public SightingController(InSightingRepository db)
+        public SightingController(InSightingRepository db, ILogger<SightingController> log)
         {
             _db = db;
+            _log = log;
         }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadAll()
+        {
+            List<Sighting> everySightings = await _db.ReadAll();
+            return Ok(everySightings);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadIdDesc()
+        {
+            List<Sighting> everySightings = await _db.ReadIdDesc();
+            return Ok(everySightings);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadCountryAsc()
+        {
+            List<Sighting> everySightings = await _db.ReadCountryAsc();
+            return Ok(everySightings);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadCountryDesc()
+        {
+            List<Sighting> everySightings = await _db.ReadCountryDesc();
+            return Ok(everySightings);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadCityAsc()
+        {
+            List<Sighting> everySightings = await _db.ReadCityAsc();
+            return Ok(everySightings);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> ReadCityDesc()
+        {
+            List<Sighting> everySightings = await _db.ReadCityDesc();
+            return Ok(everySightings);
+        }
+
 
         [HttpPost]
-        public async Task<bool> Create(Sighting innSighting)
+        public async Task<ActionResult> Create(Sighting innSighting)
         {
-            return await _db.Create(innSighting);
+            bool returOK = await _db.Create(innSighting);
+
+            if (!returOK)
+            {
+                _log.LogInformation("The sighting could not be created.");
+                return BadRequest("The sighting could not be saved.");
+            }
+            return Ok("The sighting is now created.");
         }
 
-        public async Task<List<Sighting>> ReadAll()
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
         {
-            return await _db.ReadAll();
-        }
-        
-        public async Task<List<Sighting>> ReadIdDesc()
-        {
-            return await _db.ReadIdDesc();
-        }
-        public async Task<List<Sighting>> ReadCountryAsc()
-        {
-            return await _db.ReadCountryAsc();
-        }
-        public async Task<List<Sighting>> ReadCountryDesc()
-        {
-            return await _db.ReadCountryDesc();
-        }
-        public async Task<List<Sighting>> ReadCityAsc()
-        {
-            return await _db.ReadCityAsc();
-        }
-        public async Task<List<Sighting>> ReadCityDesc()
-        {
-            return await _db.ReadCityDesc();
+            bool returOK = await _db.Delete(id);
+
+            if (!returOK)
+            {
+                _log.LogInformation("The sighting could not be deleted.");
+                return NotFound("The sighting could not be deleted.");
+            }
+            return Ok("The sighting is now deleted.");
         }
 
-        public async Task<bool> Delete(int id)
+
+        [HttpPost]
+        public async Task<ActionResult> ReadLatest()
         {
-            return await _db.Delete(id);
+            Sighting singleSighting = await _db.ReadLatest();
+
+            if (singleSighting == null)
+            {
+                _log.LogInformation("The latest sighting could not be found.");
+                return NotFound("The latest sighting could not be found.");
+            }
+            return Ok("The latest sighting was found.");
         }
 
-        public async Task<Sighting> ReadLatest()
+        [HttpGet("{id}")]
+        public async Task<ActionResult> ReadOne(int id)
         {
-            return await _db.ReadLatest();
+            Sighting singleSighting = await _db.ReadOne(id);
+
+            if (singleSighting == null)
+            {
+                _log.LogInformation("The sighting was not found.");
+                return NotFound("The sighting was not found.");
+            }
+            return Ok("The sighting was found.");
         }
 
-        public async Task<Sighting> ReadOne(int id)
+        [HttpPut]
+        public async Task<ActionResult> Update(Sighting updateSighting)
         {
-            return await _db.ReadOne(id);
-        }
+            bool returOK = await _db.Update(updateSighting);
 
-        public async Task<bool> Update(Sighting updateSighting)
-        {
-            return await _db.Update(updateSighting);
+            if (!returOK)
+            {
+                _log.LogInformation("The sighting could not be updated.");
+                return NotFound("The sighting could not be updated.");
+            }
+            return Ok("The sighting is now changed.");
         }
     }
+
 }

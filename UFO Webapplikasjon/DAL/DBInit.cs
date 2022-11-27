@@ -6,7 +6,7 @@
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<SightingContext>();
+                var context = serviceScope.ServiceProvider.GetService<Context>();
 
                 // må slette og opprette databasen hver gang når den skal initieres (seed`es)
                 context.Database.EnsureDeleted();
@@ -21,5 +21,5 @@
                 context.SaveChanges();
             }
         }
-    }    
+    }
 }

@@ -9,22 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="bin\**" />
+    <Compile Remove="wwwroot\js\**" />
     <Content Remove="bin\**" />
+    <Content Remove="wwwroot\js\**" />
     <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="wwwroot\js\**" />
     <None Remove="bin\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="wwwroot\js\admin.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\images\double-arrow-down-1.png" />
-    <None Include="wwwroot\js\article.js" />
-    <None Include="wwwroot\js\update.js" />
-    <None Include="wwwroot\js\admin.js" />
-    <None Include="wwwroot\js\index.js" />
-    <None Include="wwwroot\js\create.js" />
+    <None Remove="wwwroot\js\**" />
   </ItemGroup>
 
   <ItemGroup>
