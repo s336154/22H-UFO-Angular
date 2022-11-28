@@ -24,13 +24,13 @@ export class Update {
       null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{2,30}")])
     ],
     dateposted: [
-      null, Validators.compose([Validators.required, Validators.pattern("[0-9]{4}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}")])
     ],
     datetime: [
-      null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{2,30}")])
     ],
     comments: [
-      null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])
+      null, Validators.compose([Validators.required, Validators.pattern("[0-9a-zA-ZøæåØÆÅ\\-. ]{2,500}")])
     ]
   }
 
@@ -49,12 +49,6 @@ export class Update {
       this.updateASighting();
   }
 
-  public localData: Object[] = [
-    { Id: 'Seconds', Unit:'Seconds' },
-    { Id: 'Minutes', Unit:'Minutes' },
-    { Id: 'Hours', Unit: 'Hours' },
-    { Id: 'Days', Unit:'Days' }
-  ];
 
 
   updateSighting(id: number) {

@@ -5,7 +5,7 @@ import { List } from './list/list';
 import { Update } from './update/update';
 
 const appRoots: Routes = [
-  { path: 'list', component: Read },
+  { path: 'list', component: List },
   { path: 'create', component: Create },
   { path: 'update/:id', component: Update, },
   { path: '', redirectTo: 'list', pathMatch: 'full' }
