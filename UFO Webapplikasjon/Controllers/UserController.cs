@@ -126,6 +126,7 @@ namespace UFO_Webapplikasjon.Controllers
         }
 
 
+        [HttpPut]
         public async Task<ActionResult> LogIn(User user)
         {
            
@@ -141,6 +142,7 @@ namespace UFO_Webapplikasjon.Controllers
             return Ok(true);
         }
 
+        [HttpGet]
         public void LogOut()
         {
             HttpContext.Session.SetString(_logedIn, "");
