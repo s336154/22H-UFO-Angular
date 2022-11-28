@@ -53,7 +53,7 @@ export class Create {
 
     this.http.post("api/sighting", createdSighting)
       .subscribe(returned => {
-        this.router.navigate(['/read']);
+        this.router.navigate(['/list']);
       },
        error => console.log(error)
       );

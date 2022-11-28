@@ -86,7 +86,7 @@ export class Update {
     this.http.put("api/sighting/", updatedSighting)
       .subscribe(
         returned => {
-          this.router.navigate(['/read']);
+          this.router.navigate(['/list']);
         },
         error => console.log(error)
       );

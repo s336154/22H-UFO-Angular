@@ -4,19 +4,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { Create } from './create/create';
-import { Read } from './read/read';
+import { List } from './list/list';
 import { Update } from './update/update';
 import { Menu } from './menu/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Modal } from './read/deleteModal';
-import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { Modal } from './list/deleteModal';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Create,
-    Read,
+    List,
     Update,
     Menu,
     Modal
@@ -26,8 +26,7 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule,
-    DropDownListModule
+    NgbModule
 
   ],
   providers: [],

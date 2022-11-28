@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Create} from './create/create';
-import { Read } from './read/read';
+import { List } from './list/list';
 import { Update } from './update/update';
 
 const appRoots: Routes = [
-  { path: 'read', component: Read },
+  { path: 'list', component: Read },
   { path: 'create', component: Create },
   { path: 'update/:id', component: Update, },
-  { path: '', redirectTo: 'read', pathMatch: 'full' }
+  { path: '', redirectTo: 'list', pathMatch: 'full' }
 ]
 
 @NgModule({

@@ -6,9 +6,9 @@ import { Modal } from './deleteModal';
 import { Sighting } from "../Sighting";
 
 @Component({
-  templateUrl: "read.html"
+  templateUrl: "list.html"
 })
-export class Read {
+export class List {
   allSightings: Array<Sighting>;
   loading: boolean;
   sightingToDelete: string;
@@ -18,10 +18,10 @@ export class Read {
 
   ngOnInit() {
     this.loading = true;
-    this.readAllSightings();
+    this.listAllSightings();
   }
 
-  readAllSightings() {
+  listAllSightings() {
     this.http.get<Sighting[]>("api/sighting/")
       .subscribe(sightings => {
         this.allSightings = sightings;
@@ -58,12 +58,12 @@ export class Read {
           // kall til server for sletting
           this.http.delete("api/sighting/" + id)
             .subscribe(returned => {
-              this.readAllSightings();
+              this.listAllSightings();
             },
               error => console.log(error)
             );
         }
-        this.router.navigate(['/read']);
+        this.router.navigate(['/list']);
      });
   }
 }
