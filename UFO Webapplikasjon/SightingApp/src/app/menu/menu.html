@@ -13,14 +13,23 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
                  [ngClass]="{ show: isExpanded }">
-                <ul class="navbar-nav flex-grow">
-                     <li class="nav-item">
-                        <a class="nav-link text-dark" routerLink="/">Sightings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" routerLink="/create">File A Sighting</a>
-                    </li>
-                </ul>
+              <ul class="navbar-nav flex-grow">
+                <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/read">Feed</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/create">Submit a report</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/about">About us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="/login">Login</a>
+                </li>
+              </ul>
             </div>
         </div>
     </nav>
