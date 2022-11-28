@@ -9,6 +9,7 @@ import { Sighting } from "../Sighting";
 })
 export class Create {
   UFOform: FormGroup;
+
   
   validering = {
     id: [""],

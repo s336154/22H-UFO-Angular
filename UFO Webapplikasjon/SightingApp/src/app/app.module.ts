@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { Create } from './create/create';
 import { Read } from './read/read';
@@ -11,6 +10,7 @@ import { Menu } from './menu/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from './read/deleteModal';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,9 @@ import { Modal } from './read/deleteModal';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    DropDownListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

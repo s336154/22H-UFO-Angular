@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Sighting } from "../Sighting";
 
+
 @Component({
   templateUrl: "update.html"
 })
@@ -47,6 +48,14 @@ export class Update {
   onSubmit() {
       this.updateASighting();
   }
+
+  public localData: Object[] = [
+    { Id: 'Seconds', Unit:'Seconds' },
+    { Id: 'Minutes', Unit:'Minutes' },
+    { Id: 'Hours', Unit: 'Hours' },
+    { Id: 'Days', Unit:'Days' }
+  ];
+
 
   updateSighting(id: number) {
     this.http.get<Sighting>("api/sighting/" + id)
